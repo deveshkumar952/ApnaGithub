@@ -2,3 +2,4 @@
 /.env
 /.apnaGit
 /storage
+!storage/localStorage.js
