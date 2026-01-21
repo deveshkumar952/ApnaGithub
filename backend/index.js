@@ -16,6 +16,8 @@ import { pushRepo } from "./controllers/push.controller.js";
 import { pullRepo } from "./controllers/pull.controller.js";
 import { revertRepo } from "./controllers/revert.controller.js";
 
+import mainRouter from "./routes/main.route.js";
+
 
 dotenv.config();
 
@@ -83,9 +85,8 @@ yargs(hideBin(process.argv))
 
   app.use(cors({ origin: "*" }));
 
-  app.use("/", (req,res)=>{
-    res.send("welcome");
-  });
+  app.use("/", mainRouter);
+
 
   let user = "test";
   const httpServer = http.createServer(app);
